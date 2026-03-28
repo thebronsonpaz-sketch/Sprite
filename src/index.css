@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Anton", sans-serif;
+  --font-sans: "Inter", sans-serif;
+  --color-sprite-green: #00ff7f;
+  --color-sprite-dark: #050505;
+  --color-sprite-gray: #111111;
+  --color-sprite-light: #f4f4f4;
+}
+
+@layer base {
+  body {
+    @apply bg-sprite-dark text-white font-sans overflow-x-hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display uppercase tracking-wide;
+  }
+}
+
+@layer utilities {
+  .text-shadow-neon {
+    text-shadow:
+      0 0 10px rgba(0, 255, 127, 0.7),
+      0 0 20px rgba(0, 255, 127, 0.5);
+  }
+
+  .box-shadow-neon {
+    box-shadow: 0 0 15px rgba(0, 255, 127, 0.4);
+  }
+
+  .glitch-hover:hover {
+    animation: glitch-skew 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both
+      infinite;
+  }
+}
+
+@keyframes glitch-skew {
+  0% {
+    transform: skew(0deg);
+  }
+  20% {
+    transform: skew(-10deg);
+  }
+  40% {
+    transform: skew(10deg);
+  }
+  60% {
+    transform: skew(-5deg);
+  }
+  80% {
+    transform: skew(5deg);
+  }
+  100% {
+    transform: skew(0deg);
+  }
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
